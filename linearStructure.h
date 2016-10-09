@@ -7,12 +7,13 @@ using namespace std;
 template <class t>
 class linearStructure{
 private:
-  int size;
+  int size, topend;
   t *v;
 public:
   linearStructure(int size);
   int remove(t element);
   int add(t element);
+  void getSize();
   void print(int from = 0);
 };
 
@@ -38,5 +39,16 @@ int linearStructure<t>::remove(t element){
     return -1;
   }
 }
+
+template <class t>
+void linearStructure<t>::print(int from = 0){
+  cout << "start:" << endl;
+  for (int i = from; i < topend; i++) {
+    cout << v[i] << endl;
+  }
+}
+
+template <class t>
+void linearStructure<t>::getSize(){return size;}
 
 #endif
