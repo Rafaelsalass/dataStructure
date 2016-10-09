@@ -6,19 +6,21 @@ using namespace std;
 
 template <class t>
 class linearStructure{
-private:
+
+protected:
   int size, topend;
   t *v;
+
 public:
   linearStructure(int size);
-  int remove(t element);
-  int add(t element);
-  void getSize();
+  virtual int deleteElement();
+  virtual int add(t element);
   void print(int from = 0);
 };
 
 template <class t>
 linearStructure<t>::linearStructure(int size){
+  topend = -1;
   this->size = size;
   v = new t[size];
   if ( v == NULL) cout << "There's no enought space in the memory" << endl;
@@ -33,7 +35,7 @@ int linearStructure<t>::add(t element){
 }
 
 template <class t>
-int linearStructure<t>::remove(t element){
+int linearStructure<t>::deleteElement(){
   if(!v){
     cout << "No enought memory on the vector" << endl;
     return -1;
@@ -41,14 +43,12 @@ int linearStructure<t>::remove(t element){
 }
 
 template <class t>
-void linearStructure<t>::print(int from = 0){
+void linearStructure<t>::print(int from){
   cout << "start:" << endl;
-  for (int i = from; i < topend; i++) {
+  for (int i = from; i <= topend; i++) {
     cout << v[i] << endl;
   }
+  cout << "end." << endl;
 }
-
-template <class t>
-void linearStructure<t>::getSize(){return size;}
 
 #endif
