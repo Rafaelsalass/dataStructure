@@ -1,5 +1,7 @@
 #include "stack.h"
 #include "tail.h"
+#include <vector>
+using namespace std;
 
 int main(int argc, char**argv){
   stack<int> obj (30);
@@ -8,7 +10,6 @@ int main(int argc, char**argv){
   obj.add(65);
   obj.add(67);
   obj.print();
-
   obj.deleteElement();
   obj.print();
 

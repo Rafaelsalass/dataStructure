@@ -44,4 +44,5 @@ template <class t>
 void tail<t>::print(){
   linearStructure<t>::print();
 }
+
 #endif
