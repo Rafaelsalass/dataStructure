@@ -37,5 +37,5 @@ int main(int argc, char**argv){
   objtail.deleteElement();
   objtail.print();
   objtail.deleteElement();
-
+  cout << "IT WORKS" << endl;
 }
