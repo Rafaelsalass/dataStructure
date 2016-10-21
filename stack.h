@@ -1,7 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 #include <iostream>
-#include <stdio>
+#include <stdio.h>
 
 using namespace std;
 
@@ -53,7 +53,7 @@ int stack<t>::remove(t &element){
     return -1;
   }
   if (top == -1) {
-    std::cout << "stack is already empty" << std::endl;
+    cout << "stack is already empty" << endl;
     return 0;
   }
   element = v [top];
@@ -63,8 +63,8 @@ int stack<t>::remove(t &element){
 
 template <class t>
 void stack<t>::print(){
-  for (int i = 0; i < size; i++) {
-    std::cout << v[i] << std::endl;
+  for (int i = 0; i < top; i++) {
+    cout << v[i] << endl;
   }
 }
 #endif
