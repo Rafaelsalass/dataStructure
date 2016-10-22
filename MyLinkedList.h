@@ -19,6 +19,7 @@ public:
   node<t>* search(t element);
   void removeHead();
   void removeTail();
+  void print();
 };
 
 template <class t>
@@ -99,5 +100,17 @@ node<t>* MyLinkedList<t>::search(t element){
     }
   }
   return NULL;
+}
+
+template <class t>
+void MyLinkedList<t>::print(){
+  node<t>* p;
+  if (!p) {
+    cout << "List is empty" << endl;
+    return;
+  }
+  for(p = head; p != NULL; p->getnext()){
+    cout << p->getInfo << endl;
+  }
 }
 #endif
