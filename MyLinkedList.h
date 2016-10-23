@@ -109,7 +109,7 @@ void MyLinkedList<t>::print(){
     cout << "List is empty" << endl;
     return;
   }
-  for(p = head; p != NULL; p->getnext()){
+  for(p = head; p != NULL; p = p->getnext()){
     cout << p->getInfo << endl;
   }
 }
