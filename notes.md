@@ -21,6 +21,7 @@ dentro de la clase departamento:
 
 existe la necesidad de manejar nodos especializados:
 `node<departamento> *p; //para apuntar a los departamentos de mi lista`
+
 `node<productos> *q; // para apuntar a los productos dentro de los departamentos.`
 
 progrmar el metodo getHead():
