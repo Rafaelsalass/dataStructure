@@ -13,15 +13,15 @@ productos (en una lista).
 el pbjeto compuesto debe ser un puntero.
 Lo que esta anidado debe ser manipulado por un puntero.
 
-linkedList<departamento> tienda;
+`linkedList<departamento> tienda;`
 
 dentro de la clase departamento:
 
-linkedList<producto> *subList;
+`linkedList<producto> *subList;`
 
 existe la necesidad de manejar nodos especializados:
-node<departamento> *p; //para apuntar a los departamentos de mi lista
-node<productos> *q; // para apuntar a los productos dentro de los departamentos.
+`node<departamento> *p; //para apuntar a los departamentos de mi lista`
+`node<productos> *q; // para apuntar a los productos dentro de los departamentos.`
 
 progrmar el metodo getHead():
 
