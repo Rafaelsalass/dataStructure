@@ -25,12 +25,12 @@ node<productos> *q; // para apuntar a los productos dentro de los departamentos.
 
 progrmar el metodo getHead():
 
-´´´ c++
+```c++
 node<t>* linkedList<t>::getHead(){
   return head;
   //con este metodo abro la puerta para hacer manejo de la lista fuera de ella.
 }
-´´´
+```
 
 Parar el examen en papel:
 * listas dinamicas: simple y doble enlazada.
