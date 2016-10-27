@@ -36,3 +36,4 @@ node<t>* linkedList<t>::getHead(){
 Parar el examen en papel:
 * listas dinamicas: simple y doble enlazada.
 * colas dinamicas.
+* pilas dinamicas.
