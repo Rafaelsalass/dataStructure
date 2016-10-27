@@ -19,6 +19,7 @@ public:
   node<t>* search(t element);
   void removeHead();
   void removeTail();
+  void orderedPush(t element);
   void print();
 };
 
@@ -94,7 +95,7 @@ node<t>* MyLinkedList<t>::search(t element){
     cout << "List is empty" << endl;
     return NULL;
   }
-  for(p = head; p != NULL; p->getnext()){
+  for(p = head; p != NULL; p = p->getnext()){
     if (p->getInfo() == element) {
       return p;
     }
@@ -103,14 +104,41 @@ node<t>* MyLinkedList<t>::search(t element){
 }
 
 template <class t>
+void MyLinkedList<t>::orderedPush(t element){
+  node<t>* newNode = new node<t>(element);
+  if (!head) {
+    head = newNode;
+  }
+  else if (head->getInfo() > element) {
+    newNode->setNext(head);
+    head = newNode;
+  }
+  else{
+    node<t> *previous, *p;
+    previous = p = head;
+    while (p->getnext() != NULL && element > p->getInfo()) {
+      previous = p;
+      p = p->getnext();
+    }
+    if (element > p->getInfo()) {
+      previous = p;
+    }
+
+    newNode->setNext(previous->getnext());
+    previous->setNext(newNode);
+  }
+}
+
+template <class t>
 void MyLinkedList<t>::print(){
   node<t>* p;
+  p = head;
   if (!p) {
     cout << "List is empty" << endl;
     return;
   }
   for(p = head; p != NULL; p = p->getnext()){
-    cout << p->getInfo << endl;
+    cout << p->getInfo() << endl;
   }
 }
 #endif
