@@ -21,11 +21,17 @@ public:
   void removeTail();
   void orderedPush(t element);
   void print();
+  bool isEmpty();
 };
 
 template <class t>
 MyLinkedList<t>::MyLinkedList(){
   head = NULL;
+}
+
+template <class t>
+bool MyLinkedList<t>::isEmpty(){
+  return (head == NULL)? true : false;
 }
 
 template <class t>
@@ -54,7 +60,7 @@ template <class t>
 void MyLinkedList<t>::addTail(t element){
   node<t>* last = this->lastNode();
   node<t>* newNode;
-  newNode = new node<t>;
+  newNode = new node<t>();
   newNode->setInfo(element);
   last->setNext(newNode);
 }
@@ -78,10 +84,13 @@ void MyLinkedList<t>::removeTail(){
     cout << "List is empty" << endl;
     return;
   }
+  if(head->getnext() == NULL){
+    head = NULL;
+    return;
+  }
   while (p->getnext()->getnext() != NULL) {
     p = p->getnext();
   }
-  p = p->getnext();
   aux = p->getnext();
   p->setNext(NULL);
   delete aux;
@@ -137,6 +146,7 @@ void MyLinkedList<t>::print(){
     cout << "List is empty" << endl;
     return;
   }
+  cout << endl << endl;
   for(p = head; p != NULL; p = p->getnext()){
     cout << p->getInfo() << endl;
   }

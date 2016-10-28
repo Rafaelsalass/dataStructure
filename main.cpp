@@ -4,7 +4,7 @@
 int main(int argc, char const *argv[]) {
   MyLinkedList<int> *linkedList;
   linkedList = new MyLinkedList<int>();
-
+  linkedList->removeTail();
   linkedList->orderedPush(5);
   linkedList->orderedPush(33);
   linkedList->orderedPush(25);
@@ -20,6 +20,16 @@ int main(int argc, char const *argv[]) {
   linkedList->orderedPush(30);
   linkedList->orderedPush(142);
   linkedList->orderedPush(39);
+  linkedList->addHead(21);
+  linkedList->addTail(90);
+  linkedList->print();
+  linkedList->removeHead();
+  linkedList->print();
+  while (!linkedList->isEmpty()) {
+    linkedList->removeTail();
+    linkedList->print();
+  }
+  linkedList->removeTail();
   linkedList->print();
   return 0;
 }
