@@ -24,7 +24,7 @@ int main(int argc, char const *argv[]) {
   doubleLinkedList<int> *dLinkedList;
   dLinkedList = new doubleLinkedList<int>();
 
-  dLinkedList->addHead(20);
+  /*dLinkedList->addHead(20);
   dLinkedList->addHead(23);
   dLinkedList->addHead(27);
   dLinkedList->addHead(21);
@@ -34,6 +34,7 @@ int main(int argc, char const *argv[]) {
   dLinkedList->addTail(12);
   dLinkedList->fowardPrint();
   dLinkedList->addTail(65);
-  dLinkedList->fowardPrint();
+  dLinkedList->fowardPrint();*/
+  
   return 0;
 }
