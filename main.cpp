@@ -23,18 +23,11 @@ int main(int argc, char const *argv[]) {
   linkedList->print();*/
   doubleLinkedList<int> *dLinkedList;
   dLinkedList = new doubleLinkedList<int>();
-
-  /*dLinkedList->addHead(20);
-  dLinkedList->addHead(23);
-  dLinkedList->addHead(27);
-  dLinkedList->addHead(21);
-  dLinkedList->fowardPrint();
-  dLinkedList->addTail(23);
-  dLinkedList->fowardPrint();
-  dLinkedList->addTail(12);
-  dLinkedList->fowardPrint();
-  dLinkedList->addTail(65);
-  dLinkedList->fowardPrint();*/
-  
+  int x;
+  while(true){
+    cin >> x;
+    dLinkedList->orderedPush(x);
+    dLinkedList->fowardPrint();
+  }
   return 0;
 }

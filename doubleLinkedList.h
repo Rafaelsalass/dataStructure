@@ -56,10 +56,68 @@ void doubleLinkedList<t>::addTail(t element){
 }
 
 template <class t>
+void doubleLinkedList<t>::removeHead(){
+  node<t>* p;
+  if(!head){
+    cout << "double list is empty" << endl;
+    return;
+  }else if (head->getnext() == NULL) {
+    head = tail = NULL;
+    return;
+  }
+  p = head->getnext();
+  p->setPrevious(NULL);
+  delete head;
+  head = p;
+}
+
+template <class t>
+void doubleLinkedList<t>::removeTail(){
+  node<t>* p;
+  if(!tail){
+    cout << "double list is empty" << endl;
+    return;
+  }else if (tail->getPrevious() == NULL) {
+    head = tail = NULL;
+    return;
+  }
+  p = tail->getPrevious();
+  p->setNext(NULL);
+  delete tail;
+  tail = p;
+}
+
+template <class t>
+void doubleLinkedList<t>::orderedPush(t element){
+  node<t>* newNode = new node<t>(element);
+  node<t>* previous;
+  node<t>* next;
+  if(this->isEmpty()){
+    head = tail = newNode;
+    return;
+  }else if(element < head->getInfo()){
+    this->addHead(element);
+    return;
+  }else if(element > tail->getInfo()){
+    this->addTail(element);
+    return;
+  }
+  next = head->getnext();
+  while (element > next->getInfo()) {
+    next = next->getnext();
+  }
+  previous = next->getPrevious();
+  previous->setNext(newNode);
+  newNode->setPrevious(previous);
+  newNode->setNext(next);
+  next->setPrevious(newNode);
+}
+
+template <class t>
 void doubleLinkedList<t>::fowardPrint(){
   node<t>* p;
   if(!head){
-    cout << "doule list is empty" << endl;
+    cout << "double list is empty" << endl;
     return;
   }
   cout << endl << endl;
@@ -72,7 +130,7 @@ template <class t>
 void doubleLinkedList<t>::reversePrint(){
   node<t>* p;
   if(!tail){
-    cout << "doule list is empty" << endl;
+    cout << "double list is empty" << endl;
     return;
   }
   cout << endl << endl;
