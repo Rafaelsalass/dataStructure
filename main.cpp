@@ -1,6 +1,6 @@
 #include "MyLinkedList.h"
 #include "doubleLinkedList.h"
-#include "dStack.h"
+#include "dynamicStack.h"
 
 int main(int argc, char const *argv[]) {
   /*MyLinkedList<int> *linkedList;
@@ -30,7 +30,7 @@ int main(int argc, char const *argv[]) {
     dLinkedList->orderedPush(x);
     dLinkedList->fowardPrint();
   }*/
-  dStack<int>* stack = new dStack<int>();
+  dynamicStack<int>* stack = new dynamicStack<int>();
   int x, y;
   y = 0;
   stack->add(23);
