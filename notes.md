@@ -41,7 +41,7 @@ Parar el examen:
 * multilistas
 
 
-##Colas de prioridad:## como hacer un lista ordenada per en lugar de ordenar por la informacion,
+##Colas de prioridad: como hacer un lista ordenada per en lugar de ordenar por la informacion.
 ordeno por la prioridad. En la clase del objeto debo tner un atributo prioridad.
 En el metodo de eliminar recibo una bandera para saber si debo eliminar lo que tienen mayor prioridad.
 Si no se envia en elemento a eliminar la prioridad que debo tomar en cuenta para eliminar uso este valor en lugar de
