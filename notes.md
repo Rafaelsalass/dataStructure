@@ -33,7 +33,25 @@ node<t>* linkedList<t>::getHead(){
 }
 ```
 
-Parar el examen en papel:
+Parar el examen:**(sabado 12)**
 * listas dinamicas: simple y doble enlazada.
-* colas dinamicas.
-* pilas dinamicas.
+* colas dinamicas y circulares.
+* pilas dinamicas y circulares.
+* colas de prioridad.
+* bicolas.
+* multilistas
+
+
+##Colas de prioridad: como hacer un lista ordenada per en lugar de ordenar por la informacion.
+ordeno por la prioridad. En la clase del objeto debo tner un atributo prioridad.
+En el metodo de eliminar recibo una bandera para saber si debo eliminar lo que tienen mayor prioridad.
+Si no se envia en elemento a eliminar la prioridad que debo tomar en cuenta para eliminar uso este valor en lugar de
+la que tenga mayor prioridad.
+
+hacer un metodo para saber si existen elemntos con la prioridad que quiero eliminar.
+
+* elimina el principio FIFO
+* Los datos de la cola son eliminados para su procesamiento en orden de prioridad o nivel de urgencia
+
+Se puede hacer con una lista enlazada o doble enlazada y se puede hacer con una lista con nodos de cola.
+
