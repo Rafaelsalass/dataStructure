@@ -1,5 +1,6 @@
 #include "MyLinkedList.h"
 #include "doubleLinkedList.h"
+#include "dStack.h"
 
 int main(int argc, char const *argv[]) {
   /*MyLinkedList<int> *linkedList;
@@ -20,7 +21,7 @@ int main(int argc, char const *argv[]) {
     linkedList->print();
   }
   linkedList->removeTail();
-  linkedList->print();*/
+  linkedList->print();
   doubleLinkedList<int> *dLinkedList;
   dLinkedList = new doubleLinkedList<int>();
   int x;
@@ -28,6 +29,21 @@ int main(int argc, char const *argv[]) {
     cin >> x;
     dLinkedList->orderedPush(x);
     dLinkedList->fowardPrint();
+  }*/
+  dStack<int>* stack = new dStack<int>();
+  int x, y;
+  y = 0;
+  stack->add(23);
+  stack->add(12);
+  stack->add(56);
+  stack->add(234);
+  stack->add(121);
+  stack->add(78);
+  while (y < 10) {
+    stack->removeElement(x);
+    stack->print();
+    cout << endl;
+    y++;
   }
   return 0;
 }
