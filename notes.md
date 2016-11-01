@@ -33,11 +33,12 @@ node<t>* linkedList<t>::getHead(){
 }
 ```
 
-Parar el examen:
+Parar el examen:(sabado 12)
 * listas dinamicas: simple y doble enlazada.
 * colas dinamicas y circulares.
 * pilas dinamicas y circulares.
 * colas de prioridad.
+* bicolas.
 * multilistas
 
 
