@@ -17,11 +17,17 @@ public:
   void add(t element);
   void removeElement(t &element);
   void print();
+  bool isEmpty();
 };
 
 template<class t>
 dynamicStack<t>::dynamicStack(){
   top = NULL;
+}
+
+template <class t>
+bool dynamicStack<t>::isEmpty(){
+  return (top == NULL)? true : false;
 }
 
 template <class t>
@@ -42,6 +48,7 @@ void dynamicStack<t>::removeElement(t &element){
     cout << "stack is empty" << endl;
     return;
   }
+  element = top->getInfo();
   p = top->getnext();
   delete top;
   top = p;
