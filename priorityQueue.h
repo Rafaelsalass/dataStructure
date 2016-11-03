@@ -25,7 +25,7 @@ public:
   void lastOcurrence(int find);
   bool isEmpty();
   void add(t element);
-  void remove(t &element, bool band = true, int find = 0);
+  void removeElement(t &element, bool band = true, int find = 0);
   bool setPosition();
   void print();
 };
