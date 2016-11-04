@@ -110,7 +110,13 @@ void priorityQueue<t>::add(t element){
     aux = position->getnext();
     position->setNext(newNode);
     newNode->setNext(aux);
+    return;
   }
+}
+
+template <class t>
+void priorityQueue<t>::removeElement(t &element, bool band, int find){
+
 }
 
 #endif
