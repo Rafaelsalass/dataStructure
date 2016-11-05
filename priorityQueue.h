@@ -21,12 +21,13 @@ private:
   node<t>* position;
 public:
   priorityQueue();
+  bool findPriorityStart(int find);
+  bool isEmpty();
+  bool setPosition();
   bool firstOcurrence(int find);
   void lastOcurrence(int find);
-  bool isEmpty();
   void add(t element);
-  void removeElement(t &element, bool band = true, int find = 0);
-  bool setPosition();
+  void removeElement(t &element, bool band = true);
   void print();
 };
 
@@ -54,16 +55,30 @@ bool priorityQueue<t>::setPosition(){
   return true;
 }
 
-/* Updates the position pointer to the first ocurrence
-of the int value you hit.
-return true if it found it.
-return false if don't.
-*/
 template <class t>
 bool priorityQueue<t>::firstOcurrence(int find){
   if(this->setPosition()){
     while(position){
-      if (position->getInfo()->getPriority() == find) {
+      if (position->getInfo().getPriority() == find) {
+        return true;
+      }else{
+        position = position->getnext();
+      }
+    }
+  }
+  return false;
+}
+
+/** Updates the position pointer to where the start of a priority should be.
+* return true if it found it.
+* return false if don't.
+*/
+template <class t>
+bool priorityQueue<t>::findPriorityStart(int find){
+  if(this->setPosition()){
+    while(position){
+      if (position->getInfo().getPriority() == find ||
+          find < position->getnext()->getInfo().getPriority()) {
         return true;
       }else{
         position = position->getnext();
@@ -75,10 +90,10 @@ bool priorityQueue<t>::firstOcurrence(int find){
 
 template <class t>
 void priorityQueue<t>::lastOcurrence(int find){
-  if (this->firstOcurrence(find)) {
+  if (this->findPriorityStart(find)) {
     while (position) {
-      if(position->getnext()->getInfo()->getPriority() >
-      position->getInfo()->getPriority() ||
+      if(position->getnext()->getInfo().getPriority() >
+      position->getInfo().getPriority() ||
       position->getnext() == NULL){
           return;
       }else{
@@ -95,28 +110,74 @@ void priorityQueue<t>::add(t element){
   if (!head) {
     head = tail = position = newNode;
     return;
-  }else if (newNode->getInfo()->getPriority() <
-  head->getInfo()->getPriority()) {
+  }else if (newNode->getInfo().getPriority() <
+  head->getInfo().getPriority()) {
+    head->setPrevious(newNode);
     newNode->setNext(head);
     head = newNode;
     return;
-  }else if (newNode->getInfo()->getPriority() >
-  tail->getInfo()->getPriority()) {
+  }else if (newNode->getInfo().getPriority() >
+  tail->getInfo().getPriority() || newNode->getInfo().getPriority() ==
+  tail->getInfo().getPriority()) {
     tail->setNext(newNode);
+    newNode->setPrevious(tail);
     tail = newNode;
     return;
   }else{
-    this->lastOcurrence();
-    aux = position->getnext();
-    position->setNext(newNode);
-    newNode->setNext(aux);
+    this->lastOcurrence(element.getPriority());
+    if(position){
+      aux = position->getnext();
+      position->setNext(newNode);
+      newNode->setPrevious(position);
+      newNode->setNext(aux);
+      aux->setPrevious(newNode);
+      return;
+    }
+  }
+}
+
+
+template <class t>
+void priorityQueue<t>::removeElement(t &element, bool band){
+  node<t>* aux = head;
+  node<t>* p;
+  if (this->isEmpty()) {
+    cout << "queue is empty" << endl;
     return;
+  }else if (band) {
+    if (head->getnext() == NULL) {
+      head = tail = position = NULL;
+      return;
+    }
+    aux = head->getnext();
+    aux->setPrevious(NULL);
+    delete head;
+    head = aux;
+    return;
+  }else{
+    // this is not working
+    if(this->firstOcurrence(element.getPriority())){
+      aux = position;
+      position = position->getPrevious();
+      p = position->getnext();
+      position->setNext(p);
+      p->setPrevious(position);
+      delete aux;
+      return;
+    }else{
+      cout << "priority level does not exist" << endl;
+    }
   }
 }
 
 template <class t>
-void priorityQueue<t>::removeElement(t &element, bool band, int find){
-
+void priorityQueue<t>::print(){
+  if(this->setPosition()){
+    while (position){
+      cout << position->getInfo() << endl;
+      position = position->getnext();
+    }
+  }
 }
 
 #endif
