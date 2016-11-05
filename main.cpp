@@ -2,7 +2,30 @@
 #include "doubleLinkedList.h"
 #include "dynamicStack.h"
 #include "dynamicQueue.h"
+#include "priorityQueue.h"
+#include <string>
 
+class testClass{
+private:
+  string name;
+  int priority;
+public:
+  testClass(){};
+  testClass(string name, int priority){
+    this->name = name;
+    this->priority = priority;
+  }
+  string getName(){return name;}
+  int getPriority(){return priority;}
+  void setName(string name){this->name = name;}
+  void setPriority(int priority){this->priority = priority;}
+  bool operator< ( testClass p ) { return this->name < p.getName();}
+  bool operator> ( testClass p ) { return this->name > p.getName();}
+  bool operator==( testClass p ) { return this->name == p.getName();}
+  friend ostream &operator<< (ostream &p, testClass t) {return p << t.getName()
+  <<"   " << t.getPriority();}
+
+};
 int main(int argc, char const *argv[]) {
   /*MyLinkedList<int> *linkedList;
   linkedList = new MyLinkedList<int>();
@@ -66,5 +89,32 @@ int main(int argc, char const *argv[]) {
     cout << "Value of x:" << x << endl;
     queue->print();
   }*/
+
+  priorityQueue<testClass>* pQueue = new priorityQueue<testClass>;
+  string name;
+  int priority, x;
+  testClass aux;
+  x = 0;
+  while (x < 4) {
+    x++;
+    cin >> name;
+    cin.ignore();
+    cin >> priority;
+    aux.setName(name);
+    aux.setPriority(priority);
+    pQueue->add(aux);
+    cout << endl;
+    pQueue->print();
+  }
+  x = 0;
+  while (x < 4) {
+    x++;
+    aux.setName("");
+    cin >> priority;
+    aux.setPriority(priority);
+    pQueue->removeElement(aux,false);
+    cout << endl;
+    pQueue->print();
+  }
   return 0;
 }
