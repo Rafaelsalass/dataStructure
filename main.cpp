@@ -106,7 +106,7 @@ int main(int argc, char const *argv[]) {
     cout << endl;
     pQueue->print();
   }
-  x = 0;
+  /*
   while (!pQueue->isEmpty()) {
     aux.setName("tambores");
     cin >> priority;
@@ -114,6 +114,12 @@ int main(int argc, char const *argv[]) {
     pQueue->removeElement(aux,false);
     cout << endl;
     pQueue->print();
-  }
+  }*/
+
+  cin >> priority;
+  aux.setName("string name");
+  aux.setPriority(priority);
+  pQueue->removePriority(aux);
+  pQueue->print();
   return 0;
 }
