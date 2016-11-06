@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "node.h"
+#include "MyLinkedList.h"
 
 /** this class requires you to have and int paramater, to define
 * priority (the smaller the value the more important),
@@ -28,6 +29,7 @@ public:
   void lastOcurrence(int find);
   void add(t element);
   void removeElement(t &element, bool band = true);
+  void removePriority(t &element);
   void print();
 private:
   void addHead(t element);
@@ -111,6 +113,8 @@ void priorityQueue<t>::lastOcurrence(int find){
         position = position->getnext();
       }
     }
+  }else{
+    cout << "priority does not exist" << endl;
   }
 }
 
@@ -196,17 +200,21 @@ void priorityQueue<t>::removeElement(t &element, bool band){
     cout << "queue is empty" << endl;
     return;
   }else if (band) {
+    element = head->getInfo();
     this->removeHead();
     return;
   }else{
     if(this->firstOcurrence(element.getPriority())){
       if (position == head) {
+        element = head->getInfo();
         this->removeHead();
         return;
       }else if (position == tail) {
+        element = tail->getInfo();
         this->removeTail();
         return;
       }
+      element = position->getInfo();
       aux = position;
       position = position->getPrevious();
       p = aux->getnext();
@@ -216,6 +224,21 @@ void priorityQueue<t>::removeElement(t &element, bool band){
       return;
     }else{
       cout << "priority level does not exist" << endl;
+    }
+  }
+}
+
+/** this will take the priority of the element that you send to it
+* and delete all the elements with the same priority
+*/
+template <class t>
+void priorityQueue<t>::removePriority(t &element){
+  if (this->isEmpty()) {
+    cout << "queue is empty" << endl;
+    return;
+  }else{
+    while (this->firstOcurrence(element.getPriority())){
+      this->removeElement(element, false);
     }
   }
 }
