@@ -95,7 +95,7 @@ int main(int argc, char const *argv[]) {
   int priority, x;
   testClass aux;
   x = 0;
-  while (x < 4) {
+  while (x < 8) {
     x++;
     cin >> name;
     cin.ignore();
@@ -107,9 +107,8 @@ int main(int argc, char const *argv[]) {
     pQueue->print();
   }
   x = 0;
-  while (x < 4) {
-    x++;
-    aux.setName("");
+  while (!pQueue->isEmpty()) {
+    aux.setName("tambores");
     cin >> priority;
     aux.setPriority(priority);
     pQueue->removeElement(aux,false);
