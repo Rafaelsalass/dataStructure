@@ -29,6 +29,11 @@ public:
   void add(t element);
   void removeElement(t &element, bool band = true);
   void print();
+private:
+  void addHead(t element);
+  void addTail(t element);
+  void removeHead();
+  void removeTail();
 };
 
 template <class t>
@@ -110,6 +115,47 @@ void priorityQueue<t>::lastOcurrence(int find){
 }
 
 template <class t>
+void priorityQueue<t>::addHead(t element){
+  node<t>* newNode = new node<t>(element);
+  head->setPrevious(newNode);
+  newNode->setNext(head);
+  head = newNode;
+}
+
+template <class t>
+void priorityQueue<t>::addTail(t element){
+  node<t>* newNode = new node<t>(element);
+  tail->setNext(newNode);
+  newNode->setPrevious(tail);
+  tail = newNode;
+}
+
+template <class t>
+void priorityQueue<t>::removeHead(){
+  node<t>* p;
+  if (head->getnext() == NULL) {
+    head = tail = NULL;
+    return;
+  }
+  p = head->getnext();
+  p->setPrevious(NULL);
+  delete head;
+  head = p;
+}
+
+template <class t>
+void priorityQueue<t>::removeTail(){
+  node<t>* p;
+  p = tail->getPrevious();
+  p->setNext(NULL);
+  delete tail;
+  tail = p;
+}
+
+/** this metho will add elements to the priority queue by looking
+* the parameter "int priority" in the objects that is working with
+*/
+template <class t>
 void priorityQueue<t>::add(t element){
   node<t>* newNode = new node<t>(element);
   node<t>* aux;
@@ -118,16 +164,12 @@ void priorityQueue<t>::add(t element){
     return;
   }else if (newNode->getInfo().getPriority() <
   head->getInfo().getPriority()) {
-    head->setPrevious(newNode);
-    newNode->setNext(head);
-    head = newNode;
+    this->addHead(element);
     return;
   }else if (newNode->getInfo().getPriority() >
   tail->getInfo().getPriority() || newNode->getInfo().getPriority() ==
   tail->getInfo().getPriority()) {
-    tail->setNext(newNode);
-    newNode->setPrevious(tail);
-    tail = newNode;
+    this->addTail(element);
     return;
   }else{
     this->lastOcurrence(element.getPriority());
@@ -142,7 +184,10 @@ void priorityQueue<t>::add(t element){
   }
 }
 
-
+/** this metho will remove elements to the priority queue by looking
+* the parameter "int priority" if band is true
+* else it will remove ass a normar queue by deleting the head.
+*/
 template <class t>
 void priorityQueue<t>::removeElement(t &element, bool band){
   node<t>* aux = head;
@@ -151,21 +196,20 @@ void priorityQueue<t>::removeElement(t &element, bool band){
     cout << "queue is empty" << endl;
     return;
   }else if (band) {
-    if (head->getnext() == NULL) {
-      head = tail = position = NULL;
-      return;
-    }
-    aux = head->getnext();
-    aux->setPrevious(NULL);
-    delete head;
-    head = aux;
+    this->removeHead();
     return;
   }else{
-    // this is not working
     if(this->firstOcurrence(element.getPriority())){
+      if (position == head) {
+        this->removeHead();
+        return;
+      }else if (position == tail) {
+        this->removeTail();
+        return;
+      }
       aux = position;
       position = position->getPrevious();
-      p = position->getnext();
+      p = aux->getnext();
       position->setNext(p);
       p->setPrevious(position);
       delete aux;
