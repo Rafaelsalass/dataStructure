@@ -120,7 +120,7 @@ void doubleLinkedList<t>::fowardPrint(){
     cout << "double list is empty" << endl;
     return;
   }
-  cout << endl << endl;
+  cout << endl;
   for (p = head; p != NULL; p = p->getnext()) {
     cout << p->getInfo() << endl;
   }

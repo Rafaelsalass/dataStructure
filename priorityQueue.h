@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "node.h"
-#include "MyLinkedList.h"
+#include "doubleLinkedList.h"
 
 /** this class requires you to have and int paramater, to define
 * priority (the smaller the value the more important),
@@ -29,7 +29,7 @@ public:
   void lastOcurrence(int find);
   void add(t element);
   void removeElement(t &element, bool band = true);
-  void removePriority(t &element);
+  doubleLinkedList<t>* removePriority(t &element);
   void print();
 private:
   void addHead(t element);
@@ -232,15 +232,17 @@ void priorityQueue<t>::removeElement(t &element, bool band){
 * and delete all the elements with the same priority
 */
 template <class t>
-void priorityQueue<t>::removePriority(t &element){
+doubleLinkedList<t>* priorityQueue<t>::removePriority(t &element){
+  doubleLinkedList<t>* auxList = new doubleLinkedList<t>;
   if (this->isEmpty()) {
     cout << "queue is empty" << endl;
-    return;
   }else{
     while (this->firstOcurrence(element.getPriority())){
       this->removeElement(element, false);
+      auxList->orderedPush(element);
     }
   }
+  return auxList;
 }
 
 template <class t>
