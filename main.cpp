@@ -116,10 +116,15 @@ int main(int argc, char const *argv[]) {
     pQueue->print();
   }*/
 
+  doubleLinkedList<testClass>* auxDoubleList = new doubleLinkedList<testClass>;
+
   cin >> priority;
   aux.setName("string name");
   aux.setPriority(priority);
-  pQueue->removePriority(aux);
+  auxDoubleList = pQueue->removePriority(aux);
   pQueue->print();
+
+  cout << "deleted ones" << endl;
+  auxDoubleList->fowardPrint();
   return 0;
 }
