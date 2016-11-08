@@ -13,8 +13,8 @@ public:
   doubleLinkedList();
   void addHead(t element);
   void addTail(t element);
-  void removeHead();
-  void removeTail();
+  void removeHead(t &element);
+  void removeTail(t &element);
   void orderedPush(t element);
   void fowardPrint();
   void reversePrint();
@@ -62,15 +62,17 @@ void doubleLinkedList<t>::addTail(t element){
 }
 
 template <class t>
-void doubleLinkedList<t>::removeHead(){
+void doubleLinkedList<t>::removeHead(t &element){
   node<t>* p;
   if(!head){
     cout << "double list is empty" << endl;
     return;
   }else if (head->getnext() == NULL) {
+    element = head->getInfo();
     head = tail = NULL;
     return;
   }
+  element = head->getInfo();
   p = head->getnext();
   p->setPrevious(NULL);
   delete head;
@@ -78,15 +80,17 @@ void doubleLinkedList<t>::removeHead(){
 }
 
 template <class t>
-void doubleLinkedList<t>::removeTail(){
+void doubleLinkedList<t>::removeTail(t &element){
   node<t>* p;
   if(!tail){
     cout << "double list is empty" << endl;
     return;
   }else if (tail->getPrevious() == NULL) {
+    element = tail->getInfo();
     head = tail = NULL;
     return;
   }
+  element = tail->getInfo();
   p = tail->getPrevious();
   p->setNext(NULL);
   delete tail;

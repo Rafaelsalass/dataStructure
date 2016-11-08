@@ -46,15 +46,25 @@ int main(int argc, char const *argv[]) {
   }
   linkedList->removeTail();
   linkedList->print();
+  */
   doubleLinkedList<int> *dLinkedList;
   dLinkedList = new doubleLinkedList<int>();
   int x;
-  while(true){
+  int y;
+  while(y < 4){
+    y++;
     cin >> x;
     dLinkedList->orderedPush(x);
+  }
+  dLinkedList->fowardPrint();
+
+  while(!dLinkedList->isEmpty()){
+    cin.ignore();
+    dLinkedList->removeHead(x);
+    cout << "Eliminado: " << x << endl << endl;
     dLinkedList->fowardPrint();
   }
-  dynamicStack<int>* stack = new dynamicStack<int>();
+  /*dynamicStack<int>* stack = new dynamicStack<int>();
   int x, y;
   y = 0;
   stack->add(23);
@@ -68,7 +78,7 @@ int main(int argc, char const *argv[]) {
     stack->print();
     cout << endl;
     y++;
-  }*/
+  }
 
   /*dynamicQueue<int>* queue = new dynamicQueue<int>();
   int x = 0;
@@ -127,6 +137,5 @@ int main(int argc, char const *argv[]) {
   cout << "deleted ones" << endl;
   auxDoubleList->fowardPrint();
   */
-  cout << "gola" << endl;git
   return 0;
 }
