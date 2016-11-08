@@ -90,7 +90,7 @@ int main(int argc, char const *argv[]) {
     queue->print();
   }*/
 
-  priorityQueue<testClass>* pQueue = new priorityQueue<testClass>;
+  /*priorityQueue<testClass>* pQueue = new priorityQueue<testClass>;
   string name;
   int priority, x;
   testClass aux;
@@ -106,7 +106,7 @@ int main(int argc, char const *argv[]) {
     cout << endl;
     pQueue->print();
   }
-  /*
+
   while (!pQueue->isEmpty()) {
     aux.setName("tambores");
     cin >> priority;
@@ -114,7 +114,7 @@ int main(int argc, char const *argv[]) {
     pQueue->removeElement(aux,false);
     cout << endl;
     pQueue->print();
-  }*/
+  }
 
   doubleLinkedList<testClass>* auxDoubleList = new doubleLinkedList<testClass>;
 
@@ -126,5 +126,7 @@ int main(int argc, char const *argv[]) {
 
   cout << "deleted ones" << endl;
   auxDoubleList->fowardPrint();
+  */
+  cout << "gola" << endl;
   return 0;
 }

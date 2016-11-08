@@ -18,12 +18,18 @@ public:
   void orderedPush(t element);
   void fowardPrint();
   void reversePrint();
+  node<t>* getHead();
   bool isEmpty();
 };
 
 template <class t>
 doubleLinkedList<t>::doubleLinkedList(){
   head = tail = NULL;
+}
+
+template <class t>
+node<t>* doubleLinkedList<t>::getHead(){
+  return head;
 }
 
 template <class t>
