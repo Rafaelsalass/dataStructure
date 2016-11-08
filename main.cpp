@@ -127,6 +127,6 @@ int main(int argc, char const *argv[]) {
   cout << "deleted ones" << endl;
   auxDoubleList->fowardPrint();
   */
-  cout << "gola" << endl;
+  cout << "gola" << endl;git
   return 0;
 }
