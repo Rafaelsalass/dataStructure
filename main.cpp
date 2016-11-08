@@ -58,12 +58,6 @@ int main(int argc, char const *argv[]) {
   }
   dLinkedList->fowardPrint();
 
-  while(!dLinkedList->isEmpty()){
-    cin.ignore();
-    dLinkedList->removeHead(x);
-    cout << "Eliminado: " << x << endl << endl;
-    dLinkedList->fowardPrint();
-  }
   /*dynamicStack<int>* stack = new dynamicStack<int>();
   int x, y;
   y = 0;

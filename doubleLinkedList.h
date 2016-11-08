@@ -19,6 +19,7 @@ public:
   void fowardPrint();
   void reversePrint();
   node<t>* getHead();
+  bool search(node<t>* search);
   bool isEmpty();
 };
 
@@ -95,6 +96,22 @@ void doubleLinkedList<t>::removeTail(t &element){
   p->setNext(NULL);
   delete tail;
   tail = p;
+}
+
+template <class t>
+bool doubleLinkedList<t>::search(node<t>* search){
+  if (this->isEmpty()) {
+    cout << "list is empty" << endl;
+    return false;
+  }
+  node<t>* p = head;
+  while (p) {
+    if (p->getInfo() == search->getInfo()) {
+      search = p;
+      return true;
+    }
+  }
+  return false;
 }
 
 template <class t>
