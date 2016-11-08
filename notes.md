@@ -55,3 +55,12 @@ hacer un metodo para saber si existen elemntos con la prioridad que quiero elimi
 
 Se puede hacer con una lista enlazada o doble enlazada y se puede hacer con una lista con nodos de cola.
 
+
+###Para el ejercicio del interprete:
+* pasar del archivo a la lista ordenada
+* imprimir la lista (progrma ordenado)
+* Imprimir cada instruccion en orden de ejecucion (usando una pila de direcciones de nodo de instruciones)
+
+
+
+
