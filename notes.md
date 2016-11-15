@@ -100,5 +100,3 @@ una hoja es el caso base, tenemos: preorden, inorden, postorden.
 * En anchura: 
 deasplazar un puntero desde la raiz, procesando sus hijos y se avanza al siguiente nivel o capa cunado la totalidad de hijos y/o
 primos sean procesados.
-
-
