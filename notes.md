@@ -68,9 +68,12 @@ Se puede hacer con una lista enlazada o doble enlazada y se puede hacer con una 
 * En profundidad:
 desplazar un puntero desde la raiz hacia las hojas, pasando por las ramas (este es el recorrido mas común)
 se usa recursividad para hacer el backtraking en el arbol para moverme a nodos en niveles superiores, recorrido con multipropositos
-una hoja es el caso base
+una hoja es el caso base, tenemos: preorden, inorden, postorden.
+
 
 ```c++
+
+  //recorrido en profundida preorden
   template <class t>
   void arbolbb<t>::preorden(nodea<t>* p, int niv){
     for(int i = 0; i < niv; i++){
@@ -94,5 +97,8 @@ una hoja es el caso base
   }
 ```
 
+* En anchura: 
+deasplazar un puntero desde la raiz, procesando sus hijos y se avanza al siguiente nivel o capa cunado la totalidad de hijos y/o
+primos sean procesados.
 
 
