@@ -61,6 +61,38 @@ Se puede hacer con una lista enlazada o doble enlazada y se puede hacer con una 
 * imprimir la lista (progrma ordenado)
 * Imprimir cada instruccion en orden de ejecucion (usando una pila de direcciones de nodo de instruciones)
 
+###Recorrido en el arbol:
+
+###tipos:
+
+* En profundidad:
+desplazar un puntero desde la raiz hacia las hojas, pasando por las ramas (este es el recorrido mas común)
+se usa recursividad para hacer el backtraking en el arbol para moverme a nodos en niveles superiores, recorrido con multipropositos
+una hoja es el caso base
+
+```c++
+  template <class t>
+  void arbolbb<t>::preorden(nodea<t>* p, int niv){
+    for(int i = 0; i < niv; i++){
+      cout << "  ";
+     }
+    cout << p->getInfo() << endl;
+    if(p->getHI()){
+      preorden(p->getHI(), niv + 1);
+    }
+    if(p->getHD()){
+      preorden(p->getHD(), niv + 1);
+    }
+  }
+  
+  template <class t>
+  void arbolbb::imprimir(){
+    if(!raiz){
+      return;
+    }
+    preorden(raiz, 0);
+  }
+```
 
 
 
